@@ -6,6 +6,7 @@ from agents.cost_agent import estimate_cost
 from agents.workorder_agent import create_workorder
 from agents.retrieval_agent import retrieve_knowledge
 from agents.urgency_agent import get_urgency
+from pdf_generator import generate_pdf
 
 st.set_page_config(
     page_title="HomeHelp IQ",
@@ -54,5 +55,26 @@ if st.button("Analyze Issue"):
 
     st.write("### Work Order")
     st.code(workorder)
+    st.write("### Work Order")
+    st.code(workorder)
+
+    pdf_file = generate_pdf(
+        issue,
+        urgency,
+        safety,
+        cost
+    )
+
+    with open(pdf_file, "rb") as file:
+
+        st.download_button(
+            label="📄 Download PDF Report",
+            data=file,
+            file_name="HomeHelp_Report.pdf",
+            mime="application/pdf"
+        )
+
+    st.write("### Knowledge Base")
+    st.text(knowledge)
     st.write("### Knowledge Base")
     st.text(knowledge)
