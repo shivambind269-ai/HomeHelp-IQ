@@ -55,8 +55,6 @@ if st.button("Analyze Issue"):
 
     st.write("### Work Order")
     st.code(workorder)
-    st.write("### Work Order")
-    st.code(workorder)
 
     pdf_file = generate_pdf(
         issue,
@@ -74,7 +72,5 @@ if st.button("Analyze Issue"):
             mime="application/pdf"
         )
 
-    st.write("### Knowledge Base")
-    st.text(knowledge)
     st.write("### Knowledge Base")
     st.text(knowledge)
